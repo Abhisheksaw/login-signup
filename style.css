@@ -1,0 +1,222 @@
+@import url("https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Borel&family=PT+Serif&family=Poppins:wght@300&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: #1c1c1c;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  background: url("image/bglogin.jpeg");
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+  filter: brightness(130%);
+}
+
+section:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+section.active {
+  background: url("image/bgsignup.png") no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: 1s;
+}
+
+.container {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  background: transparent;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  perspective: 1000px;
+  transition: 1s;
+}
+
+.flip {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.container.active .flip {
+  transform: rotateY(180deg);
+}
+
+.user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.imgBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #1c1c1c;
+  opacity: 0.8;
+  transition: 1s;
+  animation: animateSignin 6s linear infinite;
+  transform-origin: right;
+}
+
+.imgBx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container.active .imgBx {
+  animation: animateSignup 6s linear infinite;
+  transform-origin: left;
+}
+
+.formBx {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: rgba(225, 255, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  transition: 1s;
+}
+
+.formBx form h2 {
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.formBx form input {
+  width: 100%;
+  outline: none;
+  margin-bottom: 20px;
+  border: 1px solid rgba(225, 255, 255, 0.2);
+  background: transparent;
+  padding: 8px 10px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  box-shadow: inset 0 0 25px rgba(225, 255, 255, 0.2);
+}
+
+.formBx form input::placeholder {
+  color: #ffffff;
+}
+
+.formBx form input[type="submit"] {
+  max-width: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.2);
+  background: #0026fc;
+  color: #ffffff;
+  max-width: 100%;
+  padding: 8px 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.formBx form input[type="submit"]:hover {
+  background: #ffffff;
+  color: #111111;
+  transition: 0.3s;
+}
+
+.container.active .formBx form input[type="submit"] {
+  background: #e73e49;
+}
+
+.container.active .formBx form input[type="submit"]:hover {
+  background: #ffffff;
+  color: #111111;
+}
+
+.signup {
+  position: relative;
+  margin-top: 20px;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #111111;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.signup a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #0026fc;
+  transition: 1s;
+}
+
+.container.active .signup a {
+  color: #e73e49;
+}
+
+.signupBx {
+  position: absolute;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  background: transparent;
+}
+
+.signinBox {
+  position: absolute;
+  backface-visibility: hidden;
+  background: transparent;
+}
+
+@keyframes animateSignin {
+  0%,
+  100% {
+    transform: translateX(-50px) rotateY(10deg);
+  }
+  50% {
+    transform: translateX(0) rotateY(0);
+  }
+}
+
+@keyframes animateSignup {
+  0%,
+  100% {
+    transform: translateX(50px) rotateY(-10deg);
+  }
+  50% {
+    transform: translateX(0) rotateY(0);
+  }
+}
